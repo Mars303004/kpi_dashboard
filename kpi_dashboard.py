@@ -208,7 +208,7 @@ with tabs[0]:
 with tabs[1]:
     st.title("Strategic Initiatives")
 
-    si_path = "Strategic initiatives 8.csv"
+    si_path = "Strategic initiatives 10.csv"
     si_df = pd.read_csv(si_path)
     si_df.columns = si_df.columns.str.strip().str.lower()
 
