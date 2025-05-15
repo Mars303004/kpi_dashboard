@@ -208,11 +208,9 @@ with tabs[0]:
 # ================== TAB 2: STRATEGIC INITIATIVES ==================
 with tabs[1]:
     st.title("Strategic Initiatives")
-
     # ======= Load Data =======
     si_path = "Strategic initiatives 10.csv"
     si_df = pd.read_csv(si_path)
-
     # Normalize column names just in case
     si_df.columns = si_df.columns.str.strip().str.lower()
 
@@ -251,7 +249,6 @@ with tabs[1]:
     # ================== DONUT CHART PER PROGRAM ==================
     st.markdown("## Strategic Initiatives by Program")
     program_list = si_df['program'].dropna().unique().tolist()
-
     if 'selected_program' not in st.session_state:
         st.session_state.selected_program = program_list[0]
 
@@ -263,6 +260,11 @@ with tabs[1]:
             st.markdown(f"#### {program}")
             prog_df = si_df[si_df['program'] == program]
             counts = prog_df['status'].value_counts().reindex(status_order).fillna(0)
+
+            # Skip if no data for the program
+            if counts.sum() == 0:
+                st.warning(f"Tidak ada data untuk program '{program}'.")
+                continue
 
             donut = px.pie(
                 names=counts.index,
@@ -279,20 +281,18 @@ with tabs[1]:
             )
             st.plotly_chart(donut, use_container_width=True)
 
-            if st.button(f"Lihat SI untuk {program}", key=f"btn_{program}"):
+            if st.button(f"Lihat SI untuk {program}", key=f"btn_program_{program}"):
                 select_program(program)
 
-            # Tampilkan tabel SI jika program dipilih
+            # Display table if program is selected
             if st.session_state.selected_program == program:
                 table_df = prog_df[[
                     'no', 'nama si', 'related kpi', 'pic', 'status', '% completed dod', 'deadline', 'milestone'
                 ]].copy()
-
                 def style_si_row(row):
                     status = row['status'].lower()
                     color = si_status_colors.get(status, 'white')
                     font_color = 'black' if color in ['#ffe600', '#ffffff'] else 'white'
                     return [f'background-color: {color}; color: {font_color};'] * len(row)
-
                 st.dataframe(table_df.style.apply(style_si_row, axis=1), use_container_width=True)
                 st.markdown(f"### Total Strategic Initiatives untuk {program}: **{len(table_df)}**")
