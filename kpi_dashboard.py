@@ -216,8 +216,94 @@ with tabs[1]:
     # Normalize column names just in case
     si_df.columns = si_df.columns.str.strip().str.lower()
     
-    # Normalize status
-    si_df['status'] = si_df['status'].str.strip().str.lower()
+    # Define order and color mapping
+    si_status_colors = {
+       'Unspecified Timeline': '#fbc4dc',
+        'Unspecified DoD': '#f6b8f3',
+        'Not Started': '#dcdcdc',
+        'Achieved': '#009245',
+        'Done': '#a9e7fa',
+        'Delay': '#ff5a5a',
+        'At Risk': '#ff914d',
+        'On Track': '#a7f4cb',   
+    }
+    status_order = list(si_status_colors.keys())
+    
+    # ================== CHART 1: Horizontal Bar Chart ==================
+    status_counts = si_df['status'].value_counts().reindex(status_order).fillna(0)
+    fig_status = px.bar(
+        x=status_counts.values,
+        y=status_counts.index,
+        orientation='h',
+        color=status_counts.index,
+        color_discrete_map=si_status_colors,
+        labels={"x": "Jumlah SI", "y": "Status"},
+        title="Strategic Initiatives by Status",
+        text=status_counts.values  # Add data labels
+    )
+    fig_status.update_layout(
+        height=350,
+        plot_bgcolor='white',
+        paper_bgcolor='white',
+        font=dict(size=14),
+        uniformtext_minsize=8,  # Ensure text is readable
+        uniformtext_mode='hide'  # Hide text if too small
+    )
+    st.plotly_chart(fig_status, use_container_width=True)
+    
+    # ================== DONUT CHART PER PROGRAM ==================
+    st.markdown("## Strategic Initiatives by Program")
+    
+    program_list = si_df['program'].dropna().unique().tolist()
+    if 'selected_program' not in st.session_state:
+        st.session_state.selected_program = program_list[0]
+    
+    def select_program(p):
+        st.session_state.selected_program = p
+    
+    cols_per_row = 3  # Ubah menjadi 3 kolom per baris
+    num_cols = len(program_list)
+    num_rows = (num_cols + cols_per_row - 1) // cols_per_row  # Ceiling division
+    
+    for i in range(num_rows):
+        row = st.columns(cols_per_row)
+        for j in range(cols_per_row):
+            idx = i * cols_per_row + j
+            if idx < num_cols:
+                program = program_list[idx]
+                with row[j]:
+                    # Button for program name
+                    if st.button(f"{program}", key=f"btn_{program}"):
+                        select_program(program)
+                    
+                    # Donut chart
+                    prog_df = si_df[si_df['program'] == program]
+                    counts = prog_df['status'].value_counts().reindex(status_order).fillna(0)
+                    donut = px.pie(
+                        names=counts.index,
+                        values=counts.values,
+                        hole=0.6,
+                        color=counts.index,
+                        color_discrete_map=si_status_colors,
+                    )
+                    donut.update_traces(textinfo='none')
+                    donut.update_layout(
+                        showlegend=True,
+                        height=300,
+                        margin=dict(t=10, b=10)
+                    )
+                    st.plotly_chart(donut, use_container_width=True)
+    
+    # ========== TABEL DETAIL SI ==========
+with tabs[1]:
+    st.title("Strategic Initiatives")
+    
+    # ======= Load Data =======
+    si_path = "Strategic initiatives 10.csv"
+    si_df = pd.read_csv(si_path)
+    
+    # Normalize column names just in case
+    si_df.columns = si_df.columns.str.strip().str.lower()
     
     # Define order and color mapping
     si_status_colors = {
@@ -296,22 +382,23 @@ with tabs[1]:
                         margin=dict(t=10, b=10)
                     )
                     st.plotly_chart(donut, use_container_width=True)
-                    
-                    # Display table if program is selected
-                    if st.session_state.selected_program == program:
-                        if prog_df.empty:
-                            st.warning(f"Tidak ada data untuk program '{program}'.")
-                        else:
-                            display_cols = [
-                                'no', 'nama si', 'related kpi', 'pic', 'status', '% completed dod', 'deadline', 'milestone'
-                            ]
-                            table_df = prog_df[display_cols].copy()
-                            
-                            def style_si_row(row):
-                                status = row['status'].lower()
-                                color = si_status_colors.get(status, 'white')
-                                font_color = 'black' if color in ['#ffe600', '#ffffff'] else 'white'
-                                return [f'background-color: {color}; color: {font_color};'] * len(row)
-                            
-                            st.dataframe(table_df.style.apply(style_si_row, axis=1), use_container_width=True)
-                            st.markdown(f"### Total Strategic Initiatives untuk {program}: **{len(table_df)}**")
+    
+    
+    # ========== TABEL DETAIL SI ==========
+    selected_program = st.session_state.selected_program
+    prog_df = si_df[si_df['program'] == selected_program]
+    if not prog_df.empty:
+        table_df = prog_df[[
+            'no', 'nama si', 'related kpi', 'pic', 'status', '% completed dod', 'deadline', 'milestone'
+        ]].copy()
+        
+        def style_si_row(row):
+            status = row['status'].lower()
+            color = si_status_colors.get(status, 'white')
+            font_color = 'black' if color in ['#ffe600', '#ffffff'] else 'white'
+            return [f'background-color: {color}; color: {font_color};'] * len(row)
+        
+        st.dataframe(table_df.style.apply(style_si_row, axis=1), use_container_width=True)
+        st.markdown(f"### Total Strategic Initiatives untuk {selected_program}: **{len(table_df)}**")
+    else:
+        st.warning(f"Tidak ada data untuk program '{selected_program}'.")
