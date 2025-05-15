@@ -1,0 +1,34 @@
+﻿Perspective,Kode KPI,KPI,PIC,Target Tahunan,Measurement Type,YTD Achievement Type,Target Jan,Actual Jan,Achv Jan,Target Feb,Actual Feb,Achv Feb
+F,F1.1,Test 1,SA,28,Higher Better,SUM,1.105,1.259,113.94%,2.47,2.652,107.37%
+C&M,C1.1,Test 2,CCC,8,Higher Better,LAST,8,N/A,#N/A,8,N/A,#N/A
+C&M,C1.2,Test 3,CCC,8,Higher Better,LAST,8,N/A,#N/A,8,N/A,#N/A
+C&M,C2.1,Test 4,CCC,8,Higher Better,SUM,8,N/A,#N/A,8,N/A,#N/A
+C&M,C3.1A,Test 5,CCC,3.5,Higher Better,AVG,3.5,3.5,100.00%,3.5,4.4,120.00%
+C&M,C3.1B,Test 6,CCC,4.3,Higher Better,AVG,4.3,N/A,#N/A,4.3,N/A,#N/A
+C&M,C3.1C,Test 7,CCC,4.5,Higher Better,AVG,4.5,N/A,#N/A,4.5,N/A,#N/A
+C&M,C3.1D,Test 8,CCC,4.5,Higher Better,AVG,4.5,N/A,#N/A,4.5,N/A,#N/A
+C&M,C3.2A,Test 9,CCC,4.5,Higher Better,AVG,4.5,N/A,#N/A,4.5,N/A,#N/A
+C&M,C3.2B,Test 10,CCC,4.5,Higher Better,AVG,4.5,N/A,#N/A,4.5,N/A,#N/A
+C&M,C3.3,Test 11,GAL,4.5,Higher Better,AVG,4.5,N/A,#N/A,4.5,N/A,#N/A
+IP,P1.1,Test 12,CCC,5,Higher Better,SUM,0,N/A,#N/A,0,N/A,#N/A
+IP,P2.1,Test 13,CCC,7,Higher Better,AVG,7,N/A,#N/A,7,N/A,#N/A
+IP,P2.2,Test 14,CCC,4,Higher Better,SUM,0,N/A,#N/A,0,N/A,#N/A
+IP,P2.3,Test 15,CCC,28,Higher Better,Weighted AVG,0,N/A,#N/A,0,N/A,#N/A
+IP,P2.4,Test 16,CCC,60,Higher Better,Weighted AVG,0,N/A,#N/A,0,N/A,#N/A
+IP,P3.1,Test 17,CCC,10000,Higher Better,SUM,200,N/A,#N/A,700,525,75.00%
+IP,P3.2,Test 18,CCC,3000,Higher Better,SUM,0,N/A,#N/A,50,35,70.00%
+IP,P3.3,Test 19,CCC,200,Higher Better,SUM,0,N/A,#N/A,0,N/A,#N/A
+IP,P4.1,Test 20,GAL,170,Higher Better,AVG,170,N/A,#N/A,170,N/A,#N/A
+IP,P5.1,Test 21,CCC,20,Higher Better,Weighted AVG,30,47,120.00%,20,27,120.00%
+IP,P6.1,Test 22,CCC,3,Higher Better,SUM,0,N/A,#N/A,0,N/A,#N/A
+IP,P6.2,Test 23,CCC,16,Higher Better,SUM,0,N/A,#N/A,0,N/A,#N/A
+IP,P7.1,Test 24,CCC,5,Higher Better,SUM,0,N/A,#N/A,1,1,100.00%
+IP,P7.2,Test 25,CCC,2,Higher Better,SUM,0,N/A,#N/A,0,N/A,#N/A
+IP,P8.1,Test 26,CCC,100,Higher Better,SUM,100,N/A,#N/A,100,N/A,#N/A
+IP,P9.1,Test 27,DE,100,Higher Better,LAST,100,N/A,#N/A,100,N/A,#N/A
+IP,P10.1,Test 28,GAL,80,Higher Better,LAST,80,N/A,#N/A,80,N/A,#N/A
+IP,P11.1,Test 29,GAL,1,Higher Better,SUM,0,N/A,#N/A,0,N/A,#N/A
+LG,L1.1,Test 30,CCC,100,Higher Better,LAST,100,N/A,#N/A,100,N/A,#N/A
+LG,L2.1,Test 31,CCC,2,Higher Better,SUM,0,N/A,#N/A,0,N/A,#N/A
+LG,L3.1,Test 32,CCC,28.4,Higher Better,Weighted AVG,4.5,16.2,120.00%,4.4,14.7,120.00%
+LG,L3.2,Test 33,SA,2.15,Higher Better,Weighted AVG,0.82,1.76,120.00%,0.83,1.8,120.00%
