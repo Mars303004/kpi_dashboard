@@ -299,7 +299,7 @@ with tabs[1]:
     prog_df = si_df[si_df['program'] == selected_program]
     if not prog_df.empty:
         table_df = prog_df[[
-            'no', 'nama si', 'related kpi', 'pic', 'status', '% completed dod', 'deadline', 'milestone'
+            'nama si', 'related kpi', 'pic', 'status', '% completed dod', 'deadline', 'milestone'
         ]].copy()
         
         def style_si_row(row):
