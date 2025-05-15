@@ -203,6 +203,32 @@ with tabs[1]:
     si_df = pd.read_csv(si_path)
     si_df.columns = si_df.columns.str.strip().str.lower()
 
+        # Horizontal Bar Chart Jumlah SI per Status
+    status_counts = si_df['status'].value_counts().reindex(status_order).fillna(0).astype(int)
+    status_df = pd.DataFrame({
+        'Status': status_counts.index,
+        'Jumlah': status_counts.values
+    })
+
+    bar_fig = px.bar(
+        status_df,
+        x='Jumlah',
+        y='Status',
+        orientation='h',
+        text='Jumlah',
+        color='Status',
+        color_discrete_map=si_status_colors,
+        title="Jumlah Strategic Initiatives per Status"
+    )
+    bar_fig.update_layout(
+        height=400,
+        xaxis_title="Jumlah",
+        yaxis_title="Status",
+        margin=dict(t=40, b=40),
+    )
+    bar_fig.update_traces(textposition='outside')
+    st.plotly_chart(bar_fig, use_container_width=True)
+
     si_status_colors = {
         'Unspecified Timeline': '#fbc4dc',
         'Unspecified DoD': '#f6b8f3',
