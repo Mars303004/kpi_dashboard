@@ -217,7 +217,7 @@ with tabs[1]:
     si_df.columns = si_df.columns.str.strip().str.lower()
     
     # Define order and color mapping
-       si_status_colors = {
+    si_status_colors = {
         'Unspecified Timeline': '#fbc4dc',
         'Unspecified DoD': '#f6b8f3',
         'Not Started': '#dcdcdc',
