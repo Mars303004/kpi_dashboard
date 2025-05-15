@@ -210,7 +210,7 @@ with tabs[1]:
     st.title("Strategic Initiatives")
 
     # ======= Load Data =======
-    si_path = "Strategic initiatives 8.csv"
+    si_path = "Strategic initiatives 10.csv"
     si_df = pd.read_csv(si_path)
 
     # Normalize column names just in case
