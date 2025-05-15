@@ -203,7 +203,20 @@ with tabs[1]:
     si_df = pd.read_csv(si_path)
     si_df.columns = si_df.columns.str.strip().str.lower()
 
-        # Horizontal Bar Chart Jumlah SI per Status
+    # Warna status dan urutan
+    si_status_colors = {
+        'Unspecified Timeline': '#fbc4dc',
+        'Unspecified DoD': '#f6b8f3',
+        'Not Started': '#dcdcdc',
+        'Achieved': '#009245',
+        'Done': '#a9e7fa',
+        'Delay': '#ff5a5a',
+        'At Risk': '#ff914d',
+        'On Track': '#a7f4cb',
+    }
+    status_order = list(si_status_colors.keys())
+
+    # Horizontal Bar Chart Jumlah SI per Status (sebelum donut chart)
     status_counts = si_df['status'].value_counts().reindex(status_order).fillna(0).astype(int)
     status_df = pd.DataFrame({
         'Status': status_counts.index,
@@ -229,18 +242,7 @@ with tabs[1]:
     bar_fig.update_traces(textposition='outside')
     st.plotly_chart(bar_fig, use_container_width=True)
 
-    si_status_colors = {
-        'Unspecified Timeline': '#fbc4dc',
-        'Unspecified DoD': '#f6b8f3',
-        'Not Started': '#dcdcdc',
-        'Achieved': '#009245',
-        'Done': '#a9e7fa',
-        'Delay': '#ff5a5a',
-        'At Risk': '#ff914d',
-        'On Track': '#a7f4cb',
-    }
-    status_order = list(si_status_colors.keys())
-
+    # List program untuk donut chart & tombol filter
     program_list = si_df['program'].dropna().unique().tolist()
     if 'selected_program' not in st.session_state:
         st.session_state.selected_program = program_list[0]
