@@ -216,6 +216,9 @@ with tabs[1]:
     # Normalize column names just in case
     si_df.columns = si_df.columns.str.strip().str.lower()
     
+    # Normalize status
+    si_df['status'] = si_df['status'].str.strip().str.lower()
+    
     # Define order and color mapping
     si_status_colors = {
         'Unspecified Timeline': '#fbc4dc',
@@ -293,22 +296,22 @@ with tabs[1]:
                         margin=dict(t=10, b=10)
                     )
                     st.plotly_chart(donut, use_container_width=True)
-    
-    # ========== TABEL DETAIL SI ==========
-    selected_program = st.session_state.selected_program
-    prog_df = si_df[si_df['program'] == selected_program]
-    if not prog_df.empty:
-        table_df = prog_df[[
-            'nama si', 'related kpi', 'pic', 'status', '% completed dod', 'deadline', 'milestone'
-        ]].copy()
-        
-        def style_si_row(row):
-            status = row['status'].lower()
-            color = si_status_colors.get(status, 'white')
-            font_color = 'black' if color in ['#ffe600', '#ffffff'] else 'white'
-            return [f'background-color: {color}; color: {font_color};'] * len(row)
-        
-        st.dataframe(table_df.style.apply(style_si_row, axis=1), use_container_width=True)
-        st.markdown(f"### Total Strategic Initiatives untuk {selected_program}: **{len(table_df)}**")
-    else:
-        st.warning(f"Tidak ada data untuk program '{selected_program}'.")
+                    
+                    # Display table if program is selected
+                    if st.session_state.selected_program == program:
+                        if prog_df.empty:
+                            st.warning(f"Tidak ada data untuk program '{program}'.")
+                        else:
+                            display_cols = [
+                                'no', 'nama si', 'related kpi', 'pic', 'status', '% completed dod', 'deadline', 'milestone'
+                            ]
+                            table_df = prog_df[display_cols].copy()
+                            
+                            def style_si_row(row):
+                                status = row['status'].lower()
+                                color = si_status_colors.get(status, 'white')
+                                font_color = 'black' if color in ['#ffe600', '#ffffff'] else 'white'
+                                return [f'background-color: {color}; color: {font_color};'] * len(row)
+                            
+                            st.dataframe(table_df.style.apply(style_si_row, axis=1), use_container_width=True)
+                            st.markdown(f"### Total Strategic Initiatives untuk {program}: **{len(table_df)}**")
