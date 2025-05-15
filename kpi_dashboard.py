@@ -216,14 +216,14 @@ with tabs[1]:
 
     # Define order and color mapping
     si_status_colors = {
-        'on track': '#1bb934',
-        'at risk': '#ffe600',
-        'delay': '#f57c00',
-        'done': '#1976d2',
-        'achieved': '#512da8',
-        'not started': '#757575',
-        'unspecified dod': '#9e9e9e',
-        'unspecified timeline': '#ef5350'
+        'On Track': '#1bb934',
+        'At Risk': '#ffe600',
+        'Delay': '#f57c00',
+        'Done': '#1976d2',
+        'Achieved': '#512da8',
+        'Not Started': '#757575',
+        'Unspecified DoD': '#9e9e9e',
+        'Unspecified Timeline': '#ef5350'
     }
     status_order = list(si_status_colors.keys())
 
