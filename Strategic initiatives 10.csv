@@ -1,0 +1,61 @@
+﻿program,no,nama SI,related kpi,pic,status,% completed dod,deadline,milestone
+production,1.1,SI1,a,SING,On Track,3,12/31/2025,bagus 
+production,1.2,SI2,b,GUAM,On Track,10,5/16/2025,baik sekali
+production,1.3,SI3,c,GUAM,On Track,0,12/31/2025,cukup baik
+production,2.1,SI4,a,WOODY,On Track,0,12/31/2025,sangat baik
+production,2.2,SI5,b,DAISY,Not Started,0,7/31/2025,-
+production,2.3,SI6,c,PATRICK,On Track,1,10/3/2025,-
+production,2.4,SI7,a,SING,Achieved,1,3/14/2025,-
+production,2.5,SI8,b,SING,At Risk,0,6/2/2025,-
+production,2.6,SI9,c,PATRICK,On Track,0,6/30/2025,-
+production,2.7,SI10,a,DAISY,On Track,0,9/29/2025,-
+production,2.8,SI11,b,SING,Achieved,3,3/21/2025,-
+production,3.1,SI12,c,DELL,On Track,3,9/30/2025,-
+production,3.2,SI13,a,MAC,On Track,2,11/30/2025,-
+production,3.3,SI14,b,BIN,On Track,0,11/30/2025,-
+peace1,4.1,SI15,c,AQU,On Track,3,9/30/2025,-
+peace1,4.2,SI16,a,PINK,On Track,24,7/25/2025,-
+peace1,4.3,SI17,b,AQU,Not Started,0,7/31/2025,-
+peace1,5.1,SI18,c,[Name],On Track,0,5/30/2025,-
+peace1,5.2,SI19,a,[Name],On Track,0,12/31/2025,-
+peace1,6.1,SI20,b,AQU,At Risk,1,6/30/2025,-
+peace1,6.2,SI21,c,HIU,On Track,4,6/27/2025,-
+peace1,6.3,SI22,a,HIU,Not Started,0,9/19/2025,-
+peace1,6.4,SI23,b,HIU,Not Started,0,10/3/2025,-
+peace1,6.5,SI24,c,AQU,At Risk,3,5/30/2025,-
+peace2,7.1,SI25,a,YEL,Achieved,12,4/30/2025,-
+peace2,7.2,SI26,b,BRE,On Track,2,9/30/2025,-
+peace2,7.3,SI27,c,SUD,On Track,0,12/1/2025,-
+peace2,8.1,SI28,a,SEA,On Track,5,5/30/2025,-
+peace2,8.2,SI29,b,SEA,On Track,6,5/30/2025,-
+peace2,8.3,SI30,c,GREY,Delay,9,4/18/2025,-
+peace2,8.4,SI31,a,GUD,On Track,4,7/25/2025,-
+peace2,8.5,SI32,b,SUD,Delay,2,4/18/2025,-
+peace2,8.6,SI33,c,OR,On Track,1,11/10/2025,-
+peace2,9.1,SI34,a,BRE,Delay,1,2/3/2025,-
+peace2,9.2,SI35,b,BRE,Delay,0,4/30/2025,-
+peace2,9.3,SI36,c,FOR,On Track,0,5/30/2025,-
+peace2,9.4,SI37,a,FOR,On Track,0,12/31/2025,-
+documentation,10.1,SI38,b,DEV,Achieved,12,4/4/2025,-
+documentation,10.2,SI39,c,TAB,On Track,20,5/31/2025,-
+documentation,10.3,SI40,a,INS,On Track,7,5/31/2025,-
+documentation,11.1,SI41,b,INS,Achieved,11,6/30/2025,-
+documentation,11.2,SI42,c,INS,On Track,1,10/31/2025,-
+documentation,11.3,SI43,a,INS,On Track,3,6/10/2025,-
+documentation,11.4,SI44,b,INS,At Risk,1,7/7/2025,-
+documentation,11.5,SI45,c,INS,On Track,3,6/30/2025,-
+documentation,11.6,SI46,a,INS,On Track,3,6/30/2025,-
+documentation,11.7,SI47,b,TAB,On Track,0,6/30/2025,-
+games,12.1,SI48,c,[Name],Unspecified Timeline,0,1/0/1900,-
+games,13.1,SI49,a,OPT,On Track,54,6/30/2025,-
+games,13.2,SI50,b,[Name],Unspecified Timeline,0,1/0/1900,-
+games,13.3,SI51,c,[Name],Unspecified Timeline,0,1/0/1900,-
+games,14.1,SI52,a,SOR,On Track,7,5/23/2025,-
+games,14.2,SI53,b,SOR,On Track,0,7/31/2025,-
+games,14.3,SI54,c,SOR,On Track,0,5/31/2025,-
+games,14.4,SI55,a,SOR,On Track,2,10/3/2025,-
+games,14.5,SI56,b,SOR,Not Started,0,6/20/2025,-
+games,14.6,SI57,c,SOR,Achieved,3,3/14/2025,-
+games,14.7,SI58,a,SOR,At Risk,2,5/16/2025,-
+games,14.8,SI59,b,SOR,Not Started,0,11/13/2025,-
+games,15.1,SI60,c,ADD,Delay,2,6/13/2025,-
