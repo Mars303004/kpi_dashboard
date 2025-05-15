@@ -255,12 +255,12 @@ with tabs[1]:
     prog_df = si_df[si_df['program'] == selected_program]
     table_df = prog_df[['no', 'nama si', 'related kpi', 'pic', 'status', '% completed dod', 'deadline', 'milestone']].copy()
 
- def style_si_row(row):
-    color = si_status_colors.get(row['status'], 'white')
-    if row['status'] in ['On Track', 'Unspecified Timeline', 'Not Started']:
-        font_color = 'black'
-    else:
-        font_color = 'white'
-    return [f'background-color: {color}; color: {font_color};'] * len(row)
+    def style_si_row(row):
+        color = si_status_colors.get(row['status'], 'white')
+        if row['status'] in ['On Track', 'Unspecified Timeline', 'Not Started']:
+            font_color = 'black'
+        else:
+            font_color = 'white'
+        return [f'background-color: {color}; color: {font_color};'] * len(row)
 
-st.dataframe(table_df.style.apply(style_si_row, axis=1), use_container_width=True)
+    st.dataframe(table_df.style.apply(style_si_row, axis=1), use_container_width=True)
