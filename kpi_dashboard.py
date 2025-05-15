@@ -219,7 +219,7 @@ with tabs[1]:
     # Define order and color mapping
     si_status_colors = {
         'Unspecified Timeline': '#fbc4dc'
-        'Unspecified DoD': '#f8d9fb',
+        'Unspecified DoD': '#f6b8f3',
         'Not Started': '#dcdcdc',
         'Achieved': '#009245',
         'Done': '#a9e7fa',
